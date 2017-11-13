@@ -1,10 +1,9 @@
-my_collect(array)
+def my_collect(array)
   i = 0
   collect = []
-  while i < array.length
-    yield my_collect(array[0])
-    i += 1
-    collect << array
+  my_collect(array) do |value|
+    "#{value}"
+  collect << my_collect(array)
   end
   array
 end
